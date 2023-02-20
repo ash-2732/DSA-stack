@@ -141,6 +141,7 @@ int main(){
         }
     }
     cout << s.peek() << endl;
-
+    // output 
+    // 25
     return 0;
 }
