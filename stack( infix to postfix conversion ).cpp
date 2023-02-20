@@ -140,6 +140,8 @@ int main(){
         st.pop();
     }
     cout << res << endl;
-
+    
+    // input     (a-b/c)*(a/k-l)
+    // output     abc/-ak/l-*
     return 0;
 }
