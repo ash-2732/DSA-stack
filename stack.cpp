@@ -109,24 +109,38 @@ int main(){
     string t;
     cin >> t;
     
-    for( int i = 0; i < t.size(); i++ ){
+    for( int i = t.length()-1; i >= 0; i-- ){
 
-        if( t[i] == '(' or t[i] == '{' or t[i] == '[' ){
-            s.push( t[i] );
-        }
-        if( s.isEmpty() ){
-            cout << "Imbalance" << endl;
-            return 0;
+        if( t[i] >= '0' and t[i] <= '9' ){
+            s.push( t[i] - '0' );
         }
         else{
-            if( t[i] == ')' and s.peek() == '(' ) s.pop();
-            if( t[i] == '}' and s.peek() == '{' ) s.pop();
-            if( t[i] == ']' and s.peek() == '[' ) s.pop();
+            int op1 = s.peek();
+            s.pop();
+            int op2 = s.peek();
+            s.pop();
+
+            switch ( t[i] )
+            {
+            case '+':
+                s.push( op1 + op2 );
+                break;
+            case '-':
+                s.push( op1 - op2 );
+                break;
+            case '*':
+                s.push( op1 * op2 );
+                break;
+            case '/':
+                s.push( op1 / op2 );
+                break;
+            case '^':
+                s.push( pow(op1 , op2 ));
+                break;
+            }
         }
     }
-
-    if( s.isEmpty() ) cout << "Balanced" << endl;
-    else cout << "Not Balanced" << endl;
+    cout << s.peek() << endl;
 
     return 0;
 }
