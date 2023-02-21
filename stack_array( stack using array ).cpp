@@ -51,6 +51,11 @@ int main(){
     st.pop();
     st.pop();
     cout << st.Empty() << endl;
-
+    
+    // output
+    //    3
+    //    2
+    //    No element to pop
+    //    1
     return 0;
 }
